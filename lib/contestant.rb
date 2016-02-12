@@ -1,3 +1,4 @@
+# class to store contestant details
 class Contestant
   attr_reader :name
 

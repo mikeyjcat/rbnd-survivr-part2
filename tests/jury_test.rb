@@ -1,9 +1,8 @@
 require 'minitest/autorun'
-require_relative "../lib/contestant"
-require_relative "../lib/jury"
+require_relative '../lib/contestant'
+require_relative '../lib/jury'
 
 class TestJury < Minitest::Test
-
   def setup
     @jury_members = %w(carlos walter aparna trinh diego juliana poornima)
     @jury_members.map! { |member| Contestant.new(member) }
@@ -40,28 +39,30 @@ class TestJury < Minitest::Test
     assert_equal 7, output
   end
 
-  # def test_cast_votes_total_votes_equals_seven
-  #   total_votes = 0
-  #   @jury.members = @jury_members
-  #   @jury.cast_votes(@finalists).each {|k,v| total_votes += v}
-  #   assert_equal 7, total_votes
-  # end
-  #
-  # def test_cast_votes_voting_seems_random
-  #   #not an actual test, but make sure the votes each jury member casts is random. hint: TestContestant has a method that will randomly select an item from an array.
-  # end
-  #
-  # def test_report_votes_puts_score_for_each_finalist
-  #   @jury.members = @jury_members
-  #   final_votes = @jury.cast_votes(@finalists)
-  #   output = capture_io do
-  #     @jury.report_votes(final_votes)
-  #   end
-  #   assert_equal 2, output[0].split("\n").length
-  # end
-  #
-  # def test_announce_winner
-  #   final_votes = {@finalists.first => 4, @finalists.last => 3}
-  #   assert_equal @finalists.first, @jury.announce_winner(final_votes)
-  # end
+  def test_cast_votes_total_votes_equals_seven
+    total_votes = 0
+    @jury.members = @jury_members
+    @jury.cast_votes(@finalists).each_value { |v| total_votes += v }
+    assert_equal 7, total_votes
+  end
+
+  def test_cast_votes_voting_seems_random
+    # not an actual test, but make sure the votes each jury member casts is
+    # random. hint: Test Contestant has a method that will randomly select an
+    # item from an array.
+  end
+
+  def test_report_votes_puts_score_for_each_finalist
+    @jury.members = @jury_members
+    final_votes = @jury.cast_votes(@finalists)
+    output = capture_io do
+      @jury.report_votes(final_votes)
+    end
+    assert_equal 2, output[0].split("\n").length
+  end
+
+  def test_announce_winner
+    final_votes = { @finalists.first => 4, @finalists.last => 3 }
+    assert_equal @finalists.first, @jury.announce_winner(final_votes)
+  end
 end
