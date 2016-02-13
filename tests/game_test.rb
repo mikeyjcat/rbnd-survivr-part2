@@ -62,7 +62,8 @@ class TestGame < Minitest::Test
 
   def test_individual_immunity_challenge
     # TODO: Resolve this issue with Walter. challenge should not work unless
-    # tribes are merged first
+    # tribes are merged first, tbh the individual challenge should be in the
+    # tribe class
     @borneo.merge('combined tribe')
     assert_instance_of Contestant, @borneo.individual_immunity_challenge
   end

@@ -6,7 +6,7 @@ class Tribe
   def initialize(options)
     @name = options[:name] if options[:name]
     @members = options[:members] if options[:members]
-    puts "created tribe #{@name.red}"
+    puts "created tribe #{@name.green}"
   end
 
   def tribal_council(immune = nil)
