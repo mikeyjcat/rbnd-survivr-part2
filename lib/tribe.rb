@@ -10,9 +10,7 @@ class Tribe
   end
 
   def tribal_council(immune = nil)
-    voted_off = @members.select { |m| m != immune }.sample
-    @members -= [voted_off]
-    voted_off
+    @members -= [@members.select { |m| m != immune }.sample]
   end
 
   def to_s

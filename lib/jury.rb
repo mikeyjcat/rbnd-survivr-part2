@@ -19,7 +19,7 @@ class Jury
     @members.length.times do
       vote = finalists.sample
       puts vote
-      votes[vote] = votes[vote] + 1
+      votes[vote] += 1
     end
 
     votes
