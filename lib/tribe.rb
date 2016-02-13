@@ -8,8 +8,10 @@ class Tribe
     puts "created tribe #{@name}"
   end
 
-  def tribal_council(immune)
-    @members.select { |m| m != immune }.sample
+  def tribal_council(immune = nil)
+    voted_off = @members.select { |m| m != immune }.sample
+    @members -= [voted_off]
+    voted_off
   end
 
   def to_s

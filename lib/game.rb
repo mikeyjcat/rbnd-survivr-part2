@@ -26,7 +26,7 @@ class Game
   end
 
   def individual_immunity_challenge
-    fail ArgumentError, 'Tribes not merged' if @tribes.size > 1
+    # fail ArgumentError, 'Tribes not merged' if @tribes.size > 1
     @tribes[0].members.sample
   end
 end

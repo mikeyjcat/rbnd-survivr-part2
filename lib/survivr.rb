@@ -1,9 +1,9 @@
-require_relative "game"
-require_relative "tribe"
-require_relative "contestant"
-require_relative "jury"
+require_relative 'game'
+require_relative 'tribe'
+require_relative 'contestant'
+require_relative 'jury'
 
-#After your tests pass, uncomment this code below
+# After your tests pass, uncomment this code below
 #=========================================================
 # # Create an array of twenty hopefuls to compete on the island of Borneo
 # @contestants = %w(carlos walter aparna trinh diego juliana poornima juha sofia julia fernando dena orit colt zhalisa farrin muhammed ari rasha gauri)
@@ -17,17 +17,28 @@ require_relative "jury"
 # @borneo = Game.new(@coyopa, @hunapu)
 #=========================================================
 
-
-#This is where you will write your code for the three phases
+# This is where you will write your code for the three phases
 def phase_one
+  8.times do
+    loosing_tribe = @borneo.immunity_challenge
+    loosing_tribe.tribal_council
+  end
 end
 
 def phase_two
+  3.times do
+    winner = @borneo.individual_immunity_challenge
+    @borneo.tribes[0].tribal_council(winner)
+  end
 end
 
 def phase_three
+  7.times do
+    winner = @borneo.individual_immunity_challenge
+    looser = @borneo.tribes[0].tribal_council(winner)
+    @jury.add_member(looser)
+  end
 end
-
 
 # If all the tests pass, the code below should run the entire simulation!!
 #=========================================================
