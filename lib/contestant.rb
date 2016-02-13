@@ -6,7 +6,6 @@ class Contestant
     @name = name
   end
 
-  # TODO: possibly pull this method out for all classes
   def to_s
     @name
   end

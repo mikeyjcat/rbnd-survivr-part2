@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'colorizr'
 require_relative '../lib/game'
 require_relative '../lib/tribe'
 require_relative '../lib/contestant'
@@ -62,9 +63,7 @@ class TestGame < Minitest::Test
   def test_individual_immunity_challenge
     # TODO: Resolve this issue with Walter. challenge should not work unless
     # tribes are merged first
-    new_tribe = @borneo.merge('combined tribe')
-    @borneo.clear_tribes
-    @borneo.add_tribe(new_tribe)
+    @borneo.merge('combined tribe')
     assert_instance_of Contestant, @borneo.individual_immunity_challenge
   end
 end

@@ -12,7 +12,7 @@ class Jury
 
   def cast_votes(finalists)
     if finalists.size != 2
-      fail ArgumentError, "Should be two finalists : #{finalists.size}"
+      fail ArgumentError, "Should be two only finalists : #{finalists.size}"
     end
     votes = { finalists[0] => 0, finalists[1] => 0 }
 
@@ -21,6 +21,7 @@ class Jury
       puts vote
       votes[vote] = votes[vote] + 1
     end
+
     votes
   end
 
@@ -29,6 +30,7 @@ class Jury
   end
 
   def announce_winner(votes)
+    puts "The winner is :#{votes.key(votes.values.max)}"
     votes.key(votes.values.max)
   end
 end

@@ -22,11 +22,15 @@ class Game
 
   def merge(string)
     new_members = @tribes.each.map(&:members).flatten
-    Tribe.new(name: string, members: new_members)
+    merged_tribe = Tribe.new(name: string, members: new_members)
+    clear_tribes
+    add_tribe(merged_tribe)
+    merged_tribe
   end
 
+  # TODO: Move this method to the tribe class and rerun tests
   def individual_immunity_challenge
-    # fail ArgumentError, 'Tribes not merged' if @tribes.size > 1
+    fail ArgumentError, 'Tribes not merged' if @tribes.size > 1
     @tribes[0].members.sample
   end
 end

@@ -1,11 +1,12 @@
 # models a tribe and tribal council behavior
 class Tribe
-  attr_reader :name, :members
+  attr_reader :name
+  attr_accessor :members
 
   def initialize(options)
     @name = options[:name] if options[:name]
     @members = options[:members] if options[:members]
-    puts "created tribe #{@name}"
+    puts "created tribe #{@name.red}"
   end
 
   def tribal_council(immune = nil)
