@@ -61,7 +61,7 @@ class TestGame < Minitest::Test
   end
 
   def test_individual_immunity_challenge
-    # TODO: Resolve this issue with Walter. challenge should not work unless
+    # TODO: Resolve this issue with the Udacity team. Challenge should not work unless
     # tribes are merged first, tbh the individual challenge should be in the
     # tribe class
     # @borneo.merge('combined tribe')
